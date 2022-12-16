@@ -22,9 +22,14 @@
                 flex-wrap: wrap;
                 padding: 60px 60px;
             }
-            button,
             input {
                 width: 200px;
+                /* height: 20px; */
+                padding: 5px 10px;
+                margin: 10px;
+            }
+            button {
+                width: 100px;
                 /* height: 20px; */
                 padding: 5px 10px;
                 margin: 10px;
@@ -35,6 +40,12 @@
             .cel {
                 width: 50%;
             }
+            /* .cel2 {
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            } */
             @media only screen and (max-width: 739px) {
                 .wrap {
                     display: flex;
@@ -52,6 +63,12 @@
                     margin: 10px 0;
                 }
             }
+            /* .cel2 {
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            } */
         </style>
     </head>
     <body>
@@ -73,16 +90,24 @@
             <div class="cel">
                 <label for="thi">Thi</label>
                 <input type="text" id="thi" />
+                <hr />
                 <label for="trongso3">Trọng số 3</label>
-                <input type="text" id="trongso3" />
+                <input type="text" id="trongso3" readonly />
             </div>
-            <label class="mau" for="kq">Kết quả</label>
-            <input type="text" id="kq" readonly />
-            <label class="mau" for="yeucau">Yêu cầu</label>
-            <input type="text" id="yeucau" readonly />
+            <hr />
 
-            <button id="yc">Yêu cầu</button>
-            <button id="ketqua">Kết quả</button>
+            <div class="cel">
+                <label class="mau" for="kq">Kết quả</label>
+                <input type="text" id="kq" readonly />
+                <hr />
+                <label class="mau" for="yeucau">Yêu cầu</label>
+                <input type="text" id="yeucau" readonly />
+            </div>
+            <hr />
+            <div class="cel cel2">
+                <button id="yc">Yêu cầu</button>
+                <button id="ketqua">Kết quả</button>
+            </div>
         </div>
 
         <script>
