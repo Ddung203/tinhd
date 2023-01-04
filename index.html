@@ -4,176 +4,87 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            }
-            /* body {
-            } */
-            .wrap {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                /* flex-direction: column; */
-                flex-wrap: wrap;
-                padding: 60px 60px;
-            }
-            input {
-                width: 200px;
-                /* height: 20px; */
-                padding: 5px 10px;
-                margin: 10px;
-            }
-            button {
-                width: 100px;
-                /* height: 20px; */
-                padding: 5px 10px;
-                margin: 10px;
-            }
-            .mau {
-                color: red;
-            }
-            .cel {
-                width: 50%;
-            }
-            /* .cel2 {
-                width: 100vw;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            } */
-            @media only screen and (max-width: 739px) {
-                .wrap {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    flex-wrap: wrap;
-                    padding: 60px 0;
-                }
-                button,
-                input {
-                    width: 200px;
-                    /* height: 20px; */
-                    padding: 5px 10px;
-                    margin: 10px 0;
-                }
-            }
-            /* .cel2 {
-                width: 100vw;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            } */
-        </style>
+        <title>Tính điểm</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="wrap">
+        <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>
+        <form id="form">
             <div class="cel">
-                <label for="tx1">Thường xuyên 1</label>
-                <input type="text" id="tx1" />
-                <label for="trongso1">Trọng số 1</label>
-                <input type="text" id="trongso1" />
+                <label for="tx1">Thường xuyên 1</label> <br />
+                <input
+                    type="number"
+                    id="tx1"
+                    placeholder="Nhập điểm thường xuyên 1"
+                />
+                <br />
+                <label for="trongso1">Trọng số (%)</label>
+                <select id="trongso1">
+                    <option value="0" selected>(Mặc định)</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                </select>
             </div>
             <hr />
             <div class="cel">
-                <label for="tx2">Thường xuyên 2</label>
-                <input type="text" id="tx2" />
-                <label for="trongso2">Trọng số 2</label>
-                <input type="text" id="trongso2" />
+                <label for="tx2">Thường xuyên 2</label> <br />
+                <input
+                    type="number"
+                    id="tx2"
+                    placeholder="Nhập điểm thường xuyên 2"
+                />
+                <br />
+                <label for="trongso2">Trọng số (%)</label>
+                <select id="trongso2">
+                    <option value="0" selected>(Mặc định)</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                </select>
             </div>
             <hr />
             <div class="cel">
-                <label for="thi">Thi</label>
-                <input type="text" id="thi" />
-                <hr />
-                <label for="trongso3">Trọng số 3</label>
-                <input type="text" id="trongso3" readonly />
+                <label for="thi">Điểm thi</label> <br />
+                <input type="number" id="thi" placeholder="Nhập điểm thi" />
             </div>
             <hr />
 
             <div class="cel">
                 <label class="mau" for="kq">Kết quả</label>
-                <input type="text" id="kq" readonly />
+                <input class="result" type="text" id="kq" value="" readonly />
                 <hr />
                 <label class="mau" for="yeucau">Yêu cầu</label>
-                <input type="text" id="yeucau" readonly />
+                <input
+                    class="result"
+                    type="text"
+                    id="yeucau"
+                    value=""
+                    readonly
+                />
             </div>
             <hr />
             <div class="cel cel2">
                 <button id="yc">Yêu cầu</button>
                 <button id="ketqua">Kết quả</button>
             </div>
+        </form>
+        <h2>Bảng quy đổi các thang điểm</h2>
+        <div class="show">
+            <img class="h4-img" src="./assets/img/he4.png" alt="Thang điểm 4" />
         </div>
-
-        <script>
-            let tx1 = document.getElementById("tx1");
-            let trongso1 = document.getElementById("trongso1");
-            let tx2 = document.getElementById("tx2");
-            let trongso2 = document.getElementById("trongso2");
-            let thi = document.getElementById("thi");
-            // let kq = document.getElementById("kq");
-
-            const yc = document.getElementById("yc");
-            const ketqua = document.getElementById("ketqua");
-
-            ketqua.addEventListener("click", () => {
-                let tx1Value = document.getElementById("tx1").value;
-                let trongso1Value = document.getElementById("trongso1").value;
-                let tx2Value = document.getElementById("tx2").value;
-                let trongso2Value = document.getElementById("trongso2").value;
-                let thiValue = document.getElementById("thi").value;
-                let trongso3Value = document.getElementById("trongso3").value;
-                let kqVal = document.getElementById("kq");
-
-                let arr = [];
-                arr.push(
-                    tx1Value,
-                    trongso1Value,
-                    tx2Value,
-                    trongso2Value,
-                    thiValue,
-                    trongso3Value
-                );
-                let kq =
-                    arr[0] * (arr[1] / 100) +
-                    arr[2] * (arr[3] / 100) +
-                    arr[4] * (arr[5] / 100);
-                kqVal.value = kq;
-                // console.log(kqVal.value);
-            });
-
-            yc.addEventListener("click", () => {
-                let tx1Value = document.getElementById("tx1").value;
-                let trongso1Value = document.getElementById("trongso1").value;
-                let tx2Value = document.getElementById("tx2").value;
-                let trongso2Value = document.getElementById("trongso2").value;
-                let thiValue = document.getElementById("thi").value;
-                let trongso3Value = document.getElementById("trongso3").value;
-                let yeucau = document.getElementById("yeucau");
-                let trongso3 = document.getElementById("trongso3");
-                trongso3.value = 100 - trongso1Value - trongso2Value;
-                trongso3Value = Number(trongso3.value);
-                let arr = [];
-                arr.push(
-                    tx1Value,
-                    trongso1Value,
-                    tx2Value,
-                    trongso2Value,
-                    thiValue,
-                    trongso3Value
-                );
-
-                let kq =
-                    (4 - (arr[0] * (arr[1] / 100) + arr[2] * (arr[3] / 100))) /
-                    arr[5];
-                yeucau.value = kq * 100;
-                // console.log(typeof trongso3.value);
-            });
-        </script>
+        <script src="./app.js"></script>
     </body>
 </html>
