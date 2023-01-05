@@ -34,6 +34,14 @@ button {
     /* height: 20px; */
     padding: 5px 10px;
     margin: 10px;
+    background-color: #fae2d4;
+    border: 2px solid #fae2d4;
+    transition: all 0.1s ease-out;
+}
+button:active {
+    color: white;
+    background-color: #f9cdb4;
+    border: 2px solid #f9cdb4;
 }
 select {
     padding: 2px 5px;

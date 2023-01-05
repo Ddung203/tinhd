@@ -9,10 +9,11 @@
     </head>
     <body>
         <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>
-        <form id="form">
+        <form autocomplete="off" id="form">
             <div class="cel">
                 <label for="tx1">Thường xuyên 1</label> <br />
                 <input
+                    onfocus="this.value=''"
                     type="number"
                     id="tx1"
                     placeholder="Nhập điểm thường xuyên 1"
