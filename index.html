@@ -5,103 +5,126 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tính điểm</title>
+        <link rel="shortcut icon" href="./assets/img/logo-D-noBGC.png" />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>
-        <form autocomplete="off" id="form">
-            <div class="cel">
-                <label for="tx1">Thường xuyên 1</label> <br />
-                <input
-                    onfocus="this.value=''"
-                    type="number"
-                    id="tx1"
-                    placeholder="Nhập điểm thường xuyên 1"
-                    required
-                />
-                <br />
-                <label for="trongso1">Trọng số (%)</label>
-                <select id="trongso1">
-                    <option value="0" selected>(Mặc định)</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                    <option value="60">60</option>
-                    <option value="70">70</option>
-                    <option value="80">80</option>
-                </select>
-            </div>
-            <hr />
-            <div class="cel">
-                <label for="tx2">Thường xuyên 2</label> <br />
-                <input
-                    type="number"
-                    id="tx2"
-                    placeholder="Nhập điểm thường xuyên 2"
-                    required
-                />
-                <br />
-                <label for="trongso2">Trọng số (%)</label>
-                <select id="trongso2" required>
-                    <option value="0" selected>(Mặc định)</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                    <option value="60">60</option>
-                    <option value="70">70</option>
-                    <option value="80">80</option>
-                </select>
-            </div>
-            <hr />
-            <div class="cel">
-                <label for="thi">Điểm thi</label> <br />
-                <input
-                    type="number"
-                    id="thi"
-                    placeholder="Nhập điểm thi"
-                    required
-                />
-            </div>
-            <hr />
-            <div class="cel">
-                <label for="require-result">Kết quả mong muốn</label> <br />
-                <input
-                    onfocus="this.value=''"
-                    type="number"
-                    id="require-result"
-                    placeholder="Nhập kết quả mong muốn"
-                />
-            </div>
-            <hr />
-            <div class="cel">
-                <label class="mau" for="kq">Kết quả</label>
-                <input class="result" type="text" id="kq" value="" readonly />
+        <div id="main">
+            <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>
+            <form autocomplete="off" id="form">
+                <div class="cel">
+                    <label for="tx1">Thường xuyên 1</label> <br />
+                    <input
+                        onfocus="this.value=''"
+                        type="number"
+                        id="tx1"
+                        placeholder="Nhập điểm thường xuyên 1"
+                        required
+                    />
+                    <br />
+                    <label for="trongso1">Trọng số (%)</label>
+                    <select id="trongso1">
+                        <option value="0" selected>(Mặc định)</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                        <option value="70">70</option>
+                        <option value="80">80</option>
+                    </select>
+                </div>
                 <hr />
-                <label class="mau" for="yeucau">Yêu cầu</label>
-                <input
-                    class="result"
-                    type="text"
-                    id="yeucau"
-                    value=""
-                    readonly
+                <div class="cel">
+                    <label for="tx2">Thường xuyên 2</label> <br />
+                    <input
+                        type="number"
+                        id="tx2"
+                        placeholder="Nhập điểm thường xuyên 2"
+                        required
+                    />
+                    <br />
+                    <label for="trongso2">Trọng số (%)</label>
+                    <select id="trongso2" required>
+                        <option value="0" selected>(Mặc định)</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                        <option value="70">70</option>
+                        <option value="80">80</option>
+                    </select>
+                </div>
+                <hr />
+                <div class="cel">
+                    <label for="thi">Điểm thi</label> <br />
+                    <input
+                        type="number"
+                        id="thi"
+                        placeholder="Nhập điểm thi"
+                        required
+                    />
+                </div>
+                <hr />
+                <div class="cel">
+                    <label for="require-result">Kết quả mong muốn</label> <br />
+                    <input
+                        onfocus="this.value=''"
+                        type="number"
+                        id="require-result"
+                        placeholder="Nhập kết quả mong muốn"
+                    />
+                </div>
+                <hr />
+                <div class="cel">
+                    <label class="mau" for="kq">Kết quả</label>
+                    <input
+                        class="result"
+                        type="text"
+                        id="kq"
+                        value=""
+                        readonly
+                    />
+                    <hr />
+                    <label class="mau" for="yeucau">Yêu cầu</label>
+                    <input
+                        class="result"
+                        type="text"
+                        id="yeucau"
+                        value=""
+                        readonly
+                    />
+                </div>
+                <hr />
+                <div class="cel cel2">
+                    <button id="rs-btn">Kết quả</button>
+                    <button id="yc-btn">Yêu cầu</button>
+                </div>
+            </form>
+            <h2>Bảng quy đổi các thang điểm</h2>
+            <div class="show">
+                <img
+                    class="h4-img"
+                    src="./assets/img/he4.png"
+                    alt="Thang điểm 4"
                 />
+                <span class="note">* D+ 5.0 - 5.4</span>
             </div>
-            <hr />
-            <div class="cel cel2">
-                <button id="rs-btn">Kết quả</button>
-                <button id="yc-btn">Yêu cầu</button>
-            </div>
-        </form>
-        <h2>Bảng quy đổi các thang điểm</h2>
-        <div class="show">
-            <img class="h4-img" src="./assets/img/he4.png" alt="Thang điểm 4" />
         </div>
+        <footer class="footer">
+            <p>
+                Copyright &copy; 2023
+                <a target="_blank" href="http://github.com/ddung203"
+                    >DDung203</a
+                >
+            </p>
+        </footer>
+
         <script src="./index.js"></script>
     </body>
 </html>
