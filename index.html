@@ -17,6 +17,7 @@
                     type="number"
                     id="tx1"
                     placeholder="Nhập điểm thường xuyên 1"
+                    required
                 />
                 <br />
                 <label for="trongso1">Trọng số (%)</label>
@@ -40,10 +41,11 @@
                     type="number"
                     id="tx2"
                     placeholder="Nhập điểm thường xuyên 2"
+                    required
                 />
                 <br />
                 <label for="trongso2">Trọng số (%)</label>
-                <select id="trongso2">
+                <select id="trongso2" required>
                     <option value="0" selected>(Mặc định)</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -59,10 +61,24 @@
             <hr />
             <div class="cel">
                 <label for="thi">Điểm thi</label> <br />
-                <input type="number" id="thi" placeholder="Nhập điểm thi" />
+                <input
+                    type="number"
+                    id="thi"
+                    placeholder="Nhập điểm thi"
+                    required
+                />
             </div>
             <hr />
-
+            <div class="cel">
+                <label for="require-result">Kết quả mong muốn</label> <br />
+                <input
+                    onfocus="this.value=''"
+                    type="number"
+                    id="require-result"
+                    placeholder="Nhập kết quả mong muốn"
+                />
+            </div>
+            <hr />
             <div class="cel">
                 <label class="mau" for="kq">Kết quả</label>
                 <input class="result" type="text" id="kq" value="" readonly />
@@ -79,13 +95,13 @@
             <hr />
             <div class="cel cel2">
                 <button id="rs-btn">Kết quả</button>
-                <button id="yc">Yêu cầu</button>
+                <button id="yc-btn">Yêu cầu</button>
             </div>
         </form>
         <h2>Bảng quy đổi các thang điểm</h2>
         <div class="show">
             <img class="h4-img" src="./assets/img/he4.png" alt="Thang điểm 4" />
         </div>
-        <script src="./app.js"></script>
+        <script src="./index.js"></script>
     </body>
 </html>
