@@ -64,11 +64,12 @@ label {
 }
 
 .cel2 {
-    align-items: center;
+    display: block;
+    /* align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 }
 
 footer {
@@ -105,6 +106,13 @@ h2 {
     input {
         padding: 5px 10px;
         width: 200px;
+    }
+    .cel2 {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .note {
         display: block;

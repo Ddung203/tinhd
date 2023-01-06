@@ -106,24 +106,7 @@ requireBtnSubmit.addEventListener("click", (e) => {
 });
 
 
-//! Ngày âm
-function getNegativeDate(dateString) {
-    // Parse the date string using the Date object
-    const date = new Date(dateString);
 
-    // Get the day of the week as a number (0-6)
-    const dayOfWeek = date.getDay();
 
-    // Subtract the day of the week from the date to get the negative date
-    const negativeDate = new Date(date.getTime() - dayOfWeek * 24 * 60 * 60 * 1000);
 
-    // Return the negative date as a string
-    return negativeDate.toDateString();
-}
-
-// Get the negative date for January 1, 2021 (a Saturday)
-console.log(getNegativeDate('2023-01-05'));  // Output: "Sun Dec 27 2021"
-
-// Get the negative date for January 2, 2021 (a Sunday)
-console.log(getNegativeDate('2021-01-02'));  // Output: "Mon Dec 28 2021"
 
