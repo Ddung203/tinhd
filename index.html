@@ -9,6 +9,25 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div class="header">
+            <form id="search-form">
+                <input
+                    type="text"
+                    name=""
+                    id="search__input"
+                    placeholder="Nhập tên môn học"
+                    class="search__input"
+                />
+                <button
+                    type="submit"
+                    id="search__button"
+                    class="search__button"
+                    tabindex="-1"
+                >
+                    Nhập
+                </button>
+            </form>
+        </div>
         <div id="main">
             <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>
             <form autocomplete="off" id="form">
@@ -25,9 +44,11 @@
                     <label for="trongso1">Trọng số (%)</label>
                     <select id="trongso1">
                         <option value="0" selected>(Mặc định)</option>
+                        <option value="0">0</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
+                        <option value="25">25</option>
                         <option value="30">30</option>
                         <option value="40">40</option>
                         <option value="50">50</option>
@@ -49,9 +70,11 @@
                     <label for="trongso2">Trọng số (%)</label>
                     <select id="trongso2" required>
                         <option value="0" selected>(Mặc định)</option>
+                        <option value="0">0</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
+                        <option value="25">25</option>
                         <option value="30">30</option>
                         <option value="40">40</option>
                         <option value="50">50</option>
@@ -125,6 +148,6 @@
             </p>
         </footer>
 
-        <script src="./assets/js/index.min.js"></script>
+        <script src="./assets/js/index.js"></script>
     </body>
 </html>

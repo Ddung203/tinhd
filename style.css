@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
 }
 
-form {
+#form {
     align-items: center;
     background-color: #fff;
     /* border: 2px solid #000; */
@@ -84,7 +84,11 @@ h2 {
     text-align: center;
     user-select: none;
 }
-
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .h4-img {
     display: block;
     margin: 10px auto 0;
@@ -102,6 +106,10 @@ h2 {
     color: red;
 }
 @media only screen and (max-width: 739px) {
+    body {
+        overflow: hidden;
+        max-width: 100vw;
+    }
     button,
     input {
         padding: 5px 10px;
@@ -117,5 +125,13 @@ h2 {
     .note {
         display: block;
         margin-left: 20px;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .search__button {
+        width: min-content;
     }
 }
