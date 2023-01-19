@@ -563,8 +563,46 @@ const dataJSON = {
 }
 
 // const dataMonHoc = JSON.parse(dataJSON);
-console.log(dataJSON.monhoc[1].MaMH);
-console.log(dataJSON.monhoc[1].TenMH);
+// console.log(dataJSON.monhoc[1].MaMH);
+// console.log(dataJSON.monhoc[1].TenMH);
+// Get the input value
+const subjectBtn = document.getElementById("search__button");
+subjectBtn.onclick = function (e) {
+    e.preventDefault();
+    const subjectName = document.getElementById("search__input").value.toLowerCase().trim();
+    const subjectData = dataJSON.monhoc.find(subject => subject.TenMH.toLowerCase() === subjectName);
+    if (subjectData) {
+        console.log(subjectData);
+    } else {
+        alert("Không tìm thấy môn học");
+    }
+}
+
+// JavaScript: Get the input and list elements
+const inputBox = document.getElementById("search__input");
+const hintList = document.getElementById("hintList");
+
+function showHint() {
+    // Get the input value
+    const inputValue = inputBox.value;
+    let hints = "";
+    // Search through the "monhoc" array
+    if (inputValue !== '') {
+        dataJSON.monhoc.forEach(subject => {
+            if (subject.TenMH.toLowerCase().startsWith(inputValue.toLowerCase())) {
+                hints += `<li>${subject.TenMH}</li>`;
+            }
+        });
+        // Update the list of suggestions
+        hintList.innerHTML = hints;
+    } else {
+        hintList.innerHTML = hints;
+    }
+
+}
+
+
+
 
 
 

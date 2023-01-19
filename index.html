@@ -10,8 +10,9 @@
     </head>
     <body>
         <div class="header">
-            <form id="search-form">
+            <form id="search-form" autocomplete="off">
                 <input
+                    oninput="showHint()"
                     type="text"
                     name=""
                     id="search__input"
@@ -27,6 +28,7 @@
                     Nhập
                 </button>
             </form>
+            <ul id="hintList"></ul>
         </div>
         <div id="main">
             <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>

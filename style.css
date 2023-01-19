@@ -9,7 +9,12 @@ body {
     background-color: #fff;
     overflow-x: hidden;
 }
-
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 #form {
     align-items: center;
     background-color: #fff;
