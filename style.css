@@ -15,6 +15,12 @@ ul {
     justify-content: center;
     flex-direction: column;
 }
+li {
+    list-style-type: none;
+    padding: 2px 10px;
+    margin-bottom: 2px;
+    background-color: #ccc;
+}
 #form {
     align-items: center;
     background-color: #fff;

@@ -17,10 +17,16 @@ console.log(count);
 
 //! Main Logic processing
 function data() {
+    // Thường xuyên 1
     const tx1 = document.getElementById("tx1");
     const trongso1 = document.getElementById("trongso1");
+    // Thường xuyên 2
     const tx2 = document.getElementById("tx2");
     const trongso2 = document.getElementById("trongso2");
+    // Thường xuyên 3
+    const tx3 = document.getElementById("tx2");
+    const trongso3 = document.getElementById("trongso3");
+    // Điểm thi
     const thi = document.getElementById("thi");
     const requireResult = document.getElementById("require-result");
 
@@ -28,8 +34,10 @@ function data() {
     const trongso1Value = Number(trongso1.value);
     const tx2Value = Number(tx2.value);
     const trongso2Value = Number(trongso2.value);
+    const tx3Value = Number(tx3.value);
+    const trongso3Value = Number(trongso3.value);
     const thiValue = Number(thi.value);
-    const trongso3Value = 100 - trongso1Value - trongso2Value;
+    const trongSoDiemThi = 100 - trongso1Value - trongso2Value;
     const requireResultValue = Number(requireResult.value);
     return [
         tx1Value,
@@ -37,20 +45,23 @@ function data() {
         tx2Value,
         trongso2Value,
         thiValue,
-        trongso3Value,
+        trongSoDiemThi,
         requireResultValue,
+        tx3Value,
+        trongso3Value
     ];
 }
-
+// 0 1 2 3 4 5 6 7 8
+// Kết quả
 const calculateResult = (arr) =>
     arr[0] * (arr[1] / 100) +
     arr[2] * (arr[3] / 100) +
+    arr[7] * (arr[8] / 100) +
     arr[4] * (arr[5] / 100);
+// Yêu cầu
 const calculateReqireResult = (arr) =>
-    ((arr[6] - (arr[0] * (arr[1] / 100) + arr[2] * (arr[3] / 100))) / arr[5]) * 100;
-
-
-
+    ((arr[6] - (arr[0] * (arr[1] / 100) + arr[2] * (arr[3] / 100) + arr[7] * (arr[8] / 100))) / arr[5]) * 100;
+// Thang điểm
 const determineRank = (result) => {
     const rank = ["A", "B+", "B", "C+", "C", "D+", "D", "F"];
     switch (true) {
@@ -73,9 +84,9 @@ const determineRank = (result) => {
     }
 };
 
+// Hiển thị data
 const requireBtnSubmit = document.getElementById("yc-btn");
 const resultBtnSolve = document.getElementById("rs-btn");
-
 resultBtnSolve.addEventListener("click", (e) => {
     e.preventDefault();
     const kqVal = document.getElementById("kq");
@@ -87,7 +98,6 @@ resultBtnSolve.addEventListener("click", (e) => {
     const rank = determineRank(kq);
     kqVal.value = `${(Math.round(kq * 100) / 100).toFixed(2)} - ${rank}`;
 });
-
 requireBtnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     const arr = data();
@@ -104,6 +114,7 @@ requireBtnSubmit.addEventListener("click", (e) => {
             requireVal.value = `Cần đạt ${kq.toFixed(2)} để tổng điểm là ${arr[6]}`;
     }
 });
+
 //! Search
 const dataJSON = {
     "monhoc": [
