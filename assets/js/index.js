@@ -51,7 +51,7 @@ function data() {
         trongso3Value
     ];
 }
-// 0 1 2 3 4 5 6 7 8
+
 // Kết quả
 const calculateResult = (arr) =>
     arr[0] * (arr[1] / 100) +
@@ -572,27 +572,50 @@ const dataJSON = {
         }
     ]
 }
-
-// const dataMonHoc = JSON.parse(dataJSON);
-// console.log(dataJSON.monhoc[1].MaMH);
-// console.log(dataJSON.monhoc[1].TenMH);
-// Get the input value
+// JavaScript: Get the input and list elements
+const inputBox = document.getElementById("search__input");
+const hintList = document.getElementById("hintList");
+// Get search button and handle
 const subjectBtn = document.getElementById("search__button");
 subjectBtn.onclick = function (e) {
     e.preventDefault();
     const subjectName = document.getElementById("search__input").value.toLowerCase().trim();
     const subjectData = dataJSON.monhoc.find(subject => subject.TenMH.toLowerCase() === subjectName);
     if (subjectData) {
-        console.log(subjectData);
+        // console.log(subjectData);
+        changeTrongSoValue(subjectData);
     } else {
         alert("Không tìm thấy môn học");
     }
 }
+/** 
+ * 575 - 589:
+ * The code block you provided initializes 
+ * a variable subjectBtn to reference an HTML button element 
+ * with the ID "search__button". 
+ * It then adds an event listener to the button using onclick, which takes an anonymous function as an argument.
 
-// JavaScript: Get the input and list elements
-const inputBox = document.getElementById("search__input");
-const hintList = document.getElementById("hintList");
+When the button is clicked, the function is called and 
+it prevents the default behavior of the button 
+using e.preventDefault(). 
+It then gets the value of an input field with the ID 
+"search__input" and converts it to lowercase and 
+removes any leading or trailing whitespace using toLowerCase() 
+and trim(), respectively.
 
+The function then uses the find() method on 
+the dataJSON.monhoc array 
+to search for an object with a property TenMH 
+that matches the subjectName variable. 
+If a matching object is found, 
+it calls the changeTrongSoValue() function 
+and passes the object as an argument. 
+If no matching object is found, 
+it displays an alert with the message "Không tìm thấy môn học".
+ *
+*/
+
+// Display hint list (ul li)
 function showHint() {
     // Get the input value
     const inputValue = inputBox.value;
@@ -601,7 +624,7 @@ function showHint() {
     if (inputValue !== '') {
         dataJSON.monhoc.forEach(subject => {
             if (subject.TenMH.toLowerCase().startsWith(inputValue.toLowerCase())) {
-                hints += `<li>${subject.TenMH}</li>`;
+                hints += `<li class="li-monhoc" onclick="selectSubject('${subject.TenMH}')">${subject.TenMH}</li>`;
             }
         });
         // Update the list of suggestions
@@ -611,7 +634,28 @@ function showHint() {
     }
 
 }
+// Select hint
+function selectSubject(subjectName) {
+    // Do something with the selected subject
+    hintList.innerHTML = "";
+    inputBox.value = subjectName;
+}
 
+function changeTrongSoValue (data) {
+    const trongso1 = document.getElementById("trongso1");
+    trongso1.value = data.Tx1;
+    const trongso1Value = Number(trongso1.value);
+
+    const trongso2 = document.getElementById("trongso2");
+    trongso2.value = data.Tx2;
+    const trongso2Value = Number(trongso2.value);
+
+    const trongso3 = document.getElementById("trongso3");
+    trongso3.value = Number(data.Tx3 || 0);
+    const trongso3Value = Number(trongso3.value);
+
+    const trongSoDiemThi = 100 - trongso1Value - trongso2Value - trongso3Value;
+}
 
 
 
