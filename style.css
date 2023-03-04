@@ -7,6 +7,10 @@
 
 body {
     background-color: #fff;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
     overflow-x: hidden;
 }
 ul {
@@ -117,10 +121,47 @@ h2 {
     margin-left: 300px;
     color: red;
 }
+
+#hintList {
+    position: absolute;
+    top: 50.8px;
+    right: 50%;
+    transform: translateX(50%);
+}
+.li-monhoc {
+    width: 328px;
+    list-style-type: none;
+    padding: 2px 10px;
+    margin-bottom: 2px;
+    background-color: #ccc;
+}
+#main {
+    background-color: #fff;
+    width: 100vw;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#main__container {
+    width: 360px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+label[for="thi"] {
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 739px) {
     body {
-        overflow: hidden;
-        max-width: 100vw;
+        overflow-x: hidden !important;
+        width: 100vw !important;
     }
     button,
     input {
@@ -133,6 +174,7 @@ h2 {
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        top: 20px;
     }
     .cel2 {
         align-items: center;
@@ -156,32 +198,16 @@ h2 {
         /* width: min-content; */
         width: 200px;
     }
+    .h4-img {
+        margin: 0;
+        width: 100%;
+        max-width: 80%;
+    }
+    .show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
-
-#hintList {
-    position: absolute;
-    top: 50.8px;
-    right: 50%;
-    transform: translateX(50%);
-}
-.li-monhoc {
-    width: 328px;
-    list-style-type: none;
-    padding: 2px 10px;
-    margin-bottom: 2px;
-    background-color: #ccc;
-}
-#main {
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-#main__container {
-    width: 360px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-}
+/* jsfhksàh */
