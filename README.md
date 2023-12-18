@@ -1,1 +1,1 @@
-## Link: https://ddung203.github.io/tinhd/
+## Github page: https://ddung203.github.io/tinhd/
