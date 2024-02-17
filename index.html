@@ -2,15 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Tính điểm</title>
-    <link rel="shortcut icon" href="./assets/img/logo-D-noBGC.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/logo-D-noBGC.png"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
   </head>
   <body>
     <div class="header">
-      <form id="search-form" autocomplete="off">
+      <form
+        id="search-form"
+        autocomplete="off"
+      >
         <input
           onclick="this.select()"
           oninput="showHint()"
@@ -26,29 +54,41 @@
           class="search__button"
           tabindex="-1"
         >
-          Tìm
+          Nhập
         </button>
       </form>
       <ul id="hintList"></ul>
     </div>
     <div id="main">
       <div id="main__container">
-        <h2 style="text-align: center; margin: 20px 0">Tính điểm</h2>
-        <form autocomplete="off" id="form">
+        <form
+          autocomplete="off"
+          id="form"
+        >
+          <h2 style="text-align: center; margin: 20px 0 10px">Tính điểm</h2>
+
           <!-- Thường xuyên 1 -->
           <div class="cel">
             <label for="score1">Thường xuyên 1</label> <br />
             <input
-              onfocus="this.value=''"
               type="number"
+              onfocus="this.value=''"
               id="score1"
+              class="box-shadow-input"
               placeholder="Nhập điểm thường xuyên 1"
+              min="0"
+              max="10"
               required
             />
             <br />
             <label for="weight1">Trọng số (%)</label>
             <select id="weight1">
-              <option value="0" selected>(Mặc định)</option>
+              <option
+                value="0"
+                selected
+              >
+                (Mặc định)
+              </option>
               <option value="0">0</option>
               <option value="10">10</option>
               <option value="15">15</option>
@@ -70,13 +110,24 @@
               onfocus="this.value=''"
               type="number"
               id="score2"
+              class="box-shadow-input"
               placeholder="Nhập điểm thường xuyên 2"
+              min="0"
+              max="10"
               required
             />
             <br />
             <label for="weight2">Trọng số (%)</label>
-            <select id="weight2" required>
-              <option value="0" selected>(Mặc định)</option>
+            <select
+              id="weight2"
+              required
+            >
+              <option
+                value="0"
+                selected
+              >
+                (Mặc định)
+              </option>
               <option value="0">0</option>
               <option value="10">10</option>
               <option value="15">15</option>
@@ -98,13 +149,24 @@
               onfocus="this.value=''"
               type="number"
               id="score3"
+              class="box-shadow-input"
               placeholder="Nhập điểm thường xuyên 3"
+              min="0"
+              max="10"
               required
             />
             <br />
             <label for="weight3">Trọng số (%)</label>
-            <select id="weight3" required>
-              <option value="0" selected>(Mặc định)</option>
+            <select
+              id="weight3"
+              required
+            >
+              <option
+                value="0"
+                selected
+              >
+                (Mặc định)
+              </option>
               <option value="0">0</option>
               <option value="10">10</option>
               <option value="15">15</option>
@@ -126,6 +188,7 @@
               onfocus="this.value=''"
               type="number"
               id="final-exam"
+              class="box-shadow-input"
               placeholder="Nhập điểm thi"
               required
             />
@@ -139,13 +202,18 @@
               onfocus="this.value=''"
               type="number"
               id="required-result"
+              class="box-shadow-input"
               placeholder="Nhập kết quả mong muốn"
             />
           </div>
           <hr />
           <!-- Hiển thị Kết quả và Yêu cầu -->
           <div class="cel">
-            <label class="mau" for="result-value">Kết quả</label>
+            <label
+              class="mau"
+              for="result-value"
+              >Kết quả</label
+            >
             <input
               class="result"
               type="text"
@@ -154,7 +222,11 @@
               readonly
             />
             <hr />
-            <label class="mau" for="required-value">Yêu cầu</label>
+            <label
+              class="mau"
+              for="required-value"
+              >Yêu cầu</label
+            >
             <input
               class="result"
               type="text"
@@ -171,19 +243,35 @@
           </div>
         </form>
 
-        <!-- Bảng quy đổi các thang điểm -->
-        <h2>Bảng quy đổi các thang điểm</h2>
+        <!-- Bảng quy đổi -->
+
+        <h2
+          id="toggle-theme"
+          style="margin-bottom: 5px; color: #9290c3 !important"
+        >
+          Cách tính điểm
+        </h2>
         <div class="show">
-          <img class="h4-img" src="./assets/img/he4.png" alt="Thang điểm 4" />
-          <span class="note">* D+ 5.0 - 5.4</span>
+          <img
+            class="h4-img"
+            src="./assets/img/he4.jpg"
+            alt="Thang điểm 4"
+          />
         </div>
       </div>
     </div>
+
+    <!-- TEST -->
+
     <!-- FOOTER -->
     <footer class="footer">
       <p>
         Copyright &copy; 2023
-        <a target="_blank" href="http://github.com/ddung203">DDung203</a>
+        <a
+          target="_blank"
+          href="https://sv.haui.edu.vn"
+          >DDung203</a
+        >
       </p>
     </footer>
 

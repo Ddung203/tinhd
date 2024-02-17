@@ -1,16 +1,3 @@
-// !Show the number of times the web page was loaded
-window.addEventListener("load", function () {
-  let count = 0;
-  if (localStorage.getItem("count")) {
-    count = localStorage.getItem("count");
-    count++;
-  } else {
-    count = 1;
-  }
-  localStorage.setItem("count", count);
-  console.log(count);
-});
-
 let finalExamWeight = 0;
 const inputBox = document.getElementById("search__input");
 const hintList = document.getElementById("hintList");
@@ -69,44 +56,43 @@ const calculateResult = (data) =>
   data.score3 * (data.weight3 / 100) +
   data.finalExam * (data.finalExamWeight / 100);
 
-const calculateRequiredResult = (data) =>
-  (data.requiredResult -
-    (data.score1 * (data.weight1 / 100) +
-      data.score2 * (data.weight2 / 100) +
-      data.score3 * (data.weight3 / 100))) /
-  (data.finalExamWeight / 100);
+const calculateRequiredResult = (data) => {
+  console.log(
+    (data.requiredResult -
+      (data.score1 * (data.weight1 / 100) +
+        data.score2 * (data.weight2 / 100) +
+        data.score3 * (data.weight3 / 100))) /
+      (data.finalExamWeight / 100)
+  );
+  return (
+    (data.requiredResult -
+      (data.score1 * (data.weight1 / 100) +
+        data.score2 * (data.weight2 / 100) +
+        data.score3 * (data.weight3 / 100))) /
+    (data.finalExamWeight / 100)
+  );
+};
 
 const determineGrade = (result) => {
-  const grades = [
-    "A",
-    "B+",
-    "B",
-    "C+",
-    "C",
-    "D+",
-    "D",
-    "F (Học lại)",
-    "Nhập sai",
-  ];
   switch (true) {
     case result < 4:
-      return `${grades[7]}`;
-    case result <= 4.9:
-      return `${grades[6]}`;
-    case result <= 5.5:
-      return `${grades[5]}`;
-    case result <= 6.4:
-      return `${grades[4]}`;
+      return `F (Học lại)`;
+    case result <= 4.6:
+      return `D`;
+    case result <= 5.4:
+      return `D+`;
+    case result <= 6.1:
+      return `C`;
     case result <= 6.9:
-      return `${grades[3]}`;
-    case result <= 7.9:
-      return `${grades[2]}`;
+      return `C+`;
+    case result <= 7.6:
+      return `B`;
     case result <= 8.4:
-      return `${grades[1]}`;
+      return `B+`;
     case result <= 10:
-      return `${grades[0]}`;
+      return `A`;
     default:
-      return `${grades[8]}`;
+      return `Nhập sai`;
   }
 };
 
@@ -123,14 +109,14 @@ resultBtnSolve.addEventListener("click", (e) => {
 requireBtnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
   const data = getData();
-  if (data.requiredResult > 10 || data.requiredResult <= 0) {
-    alert("Please enter a valid required result (0<x<=10)!");
+  if (data.requiredResult > 10 || data.requiredResult < 0) {
+    alert("Hãy nhập giá trị hợp lệ (0<=x<=10)!");
     requiredResult.value = "";
   } else {
     const result = calculateRequiredResult(data);
     result > 10
-      ? (requiredValue.value = `Impossible to achieve ${data.requiredResult}`)
-      : (requiredValue.value = `You need to ${result.toFixed(2)} points`);
+      ? (requiredValue.value = `Không thể đạt ${data.requiredResult}`)
+      : (requiredValue.value = `Bạn cần ${result.toFixed(2)} điểm`);
   }
 });
 
@@ -640,4 +626,16 @@ function changeWeightValue(data) {
   weight3.value = Number(data.Tx3);
 
   finalExamWeight = 100 - weight1 - weight2 - weight3;
+}
+//! toggle theme
+const toggleBtn = document.getElementById("toggle-theme");
+if (toggleBtn) {
+  const mainElem = document.getElementById("main");
+  const computedStyle = window.getComputedStyle(mainElem);
+  toggleBtn.addEventListener("click", () => {
+    const bgColor = computedStyle.backgroundColor;
+    if (bgColor === "rgb(255, 255, 255)")
+      mainElem.style.backgroundColor = "#1b1a55";
+    else mainElem.style.backgroundColor = "#fff";
+  });
 }
